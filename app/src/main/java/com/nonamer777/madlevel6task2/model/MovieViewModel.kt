@@ -22,7 +22,7 @@ class MovieViewModel(application: Application): AndroidViewModel(application) {
 
     val movies = movieRepo.movies
 
-    val movie: Movie? = null
+    var movie: Movie? = null
 
     fun getPopularMoviesByYear(year: String) {
         if (!isValidYear(year)) return

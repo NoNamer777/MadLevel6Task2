@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.material.snackbar.Snackbar
+import com.nonamer777.madlevel6task2.R
 import com.nonamer777.madlevel6task2.databinding.FragmentOverviewBinding
 import com.nonamer777.madlevel6task2.model.Movie
 import com.nonamer777.madlevel6task2.model.MovieViewModel
@@ -62,11 +63,9 @@ class OverviewFragment: Fragment() {
     }
 
     private fun onMovieClick(movie: Movie) {
-        Snackbar.make(
-            binding.moviesList,
-            "${movie.title} selected",
-            Snackbar.LENGTH_LONG
-        ).show()
+        movieViewModel.movie = movie
+
+        findNavController().navigate(R.id.action_overviewFragment_to_detailsFragment)
     }
 
     private fun observeFetchedMovies() {

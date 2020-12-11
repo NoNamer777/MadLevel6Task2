@@ -13,4 +13,12 @@
     <string name="movie_list_position">%1$s.</string>
 
     <string name="img_description_movie_poster">movie poster</string>
+    <string name="img_description_movie_backdrop" />
+    <string name="img_description_rating">average rating</string>
+
+    <string name="header_title_text" />
+    <string name="label_release_date_text" />
+    <string name="span_average_rating_text" />
+    <string name="header_overview">overview</string>
+    <string name="paragraph_text" />
 </resources>
