@@ -4,4 +4,13 @@
     <!-- Strings used for fragments for navigation -->
     <string name="overview_fragment_label">Overview Fragment</string>
     <string name="details_fragment_label">Details Fragment</string>
+
+    <string name="label_input_description">The most popular movies of</string>
+    <string name="input_description_movie_year">Year</string>
+    <string name="btn_label_submit">submit</string>
+
+    <string name="action_bar_movie_poster">movie poster</string>
+    <string name="movie_list_position">%1$s.</string>
+
+    <string name="img_description_movie_poster">movie poster</string>
 </resources>
