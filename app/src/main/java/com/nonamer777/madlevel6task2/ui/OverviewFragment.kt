@@ -78,5 +78,12 @@ class OverviewFragment: Fragment() {
         movieViewModel.error.observe(viewLifecycleOwner, {
             Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
         })
+
+        MovieViewModel.isFetchingMovies.observe(viewLifecycleOwner, {
+            binding.progressBar.visibility = when (it) {
+                true -> View.VISIBLE
+                else -> View.INVISIBLE
+            }
+        })
     }
 }

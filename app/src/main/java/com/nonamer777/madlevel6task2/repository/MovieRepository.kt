@@ -7,6 +7,7 @@ import com.nonamer777.madlevel6task2.repository.exception.FetchMoviesError
 import com.nonamer777.madlevel6task2.service.ITheMovieDatabaseService
 import com.nonamer777.madlevel6task2.api.TheMovieDatabaseApi
 import com.nonamer777.madlevel6task2.model.MovieResponse
+import com.nonamer777.madlevel6task2.model.MovieViewModel
 import kotlinx.coroutines.withTimeout
 
 class MovieRepository {
@@ -22,6 +23,8 @@ class MovieRepository {
             val result: MovieResponse = withTimeout(5_000) {
                 theMovieDatabaseApi.getPopularMoviesOfYear(year)
             }
+            MovieViewModel.isFetchingMovies.value = false
+
             _movies.value = result.results
 
         } catch (error: Throwable) {

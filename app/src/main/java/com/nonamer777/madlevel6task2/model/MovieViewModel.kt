@@ -14,6 +14,11 @@ import java.util.*
 
 class MovieViewModel(application: Application): AndroidViewModel(application) {
 
+    companion object {
+
+        var isFetchingMovies = MutableLiveData(false)
+    }
+
     private val movieRepo = MovieRepository()
 
     private val _error: MutableLiveData<String> = MutableLiveData()
@@ -27,9 +32,13 @@ class MovieViewModel(application: Application): AndroidViewModel(application) {
     fun getPopularMoviesByYear(year: String) {
         if (!isValidYear(year)) return
 
+        isFetchingMovies.value = true
+
         viewModelScope.launch {
             try { movieRepo.getPopularMoviesOfYear(year.toInt()) } catch (error: FetchMoviesError) {
                 _error.value = error.message
+
+                isFetchingMovies.value = false
 
                 Log.e("Fetch movies exception", error.cause.toString())
             }
